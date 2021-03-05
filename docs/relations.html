@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>表关系高阶 | crudapi</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    <link rel="icon" href="/img/logo.png">
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?ec2fa0f31ff94a4f99d699e528191142";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+      </script>
+    <meta name="description" content="crudapi增删改查接口,无需编程-以元数据为基础，无需编程，只需配置表单和关系即可。以最少的配置帮助你专注于业务。支持主子表，级联保存等;标准的RESTful API-默认生成CRUD API，支持标准的POST，PATCH，GET，DELETE等操作，丰富的Swagger API文档;Web后台UI-基于Material Design风格的UI，界面美观，使用方面。支持元数据的管理和业务数据的增删改查操作！curdapi, crduapi, crud, api">
+    
+    <link rel="preload" href="/assets/css/0.styles.d39084ab.css" as="style"><link rel="preload" href="/assets/js/app.c403220e.js" as="script"><link rel="preload" href="/assets/js/2.5c93f19a.js" as="script"><link rel="preload" href="/assets/js/17.b4ce15f5.js" as="script"><link rel="prefetch" href="/assets/js/10.8f49618b.js"><link rel="prefetch" href="/assets/js/11.99b55632.js"><link rel="prefetch" href="/assets/js/12.33b1fd4a.js"><link rel="prefetch" href="/assets/js/13.a7710c4b.js"><link rel="prefetch" href="/assets/js/14.346d3851.js"><link rel="prefetch" href="/assets/js/15.80d0f08a.js"><link rel="prefetch" href="/assets/js/16.da795e8b.js"><link rel="prefetch" href="/assets/js/18.52a3b45c.js"><link rel="prefetch" href="/assets/js/19.b9632c10.js"><link rel="prefetch" href="/assets/js/20.fae7fffc.js"><link rel="prefetch" href="/assets/js/21.c8f9918f.js"><link rel="prefetch" href="/assets/js/3.b533e7da.js"><link rel="prefetch" href="/assets/js/4.865692a8.js"><link rel="prefetch" href="/assets/js/5.81254301.js"><link rel="prefetch" href="/assets/js/6.6e8c67be.js"><link rel="prefetch" href="/assets/js/7.8c78d0fd.js"><link rel="prefetch" href="/assets/js/8.1bdb122c.js"><link rel="prefetch" href="/assets/js/9.20b6c8b8.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.d39084ab.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.png" alt="crudapi" class="logo"> <span class="site-name can-hide">crudapi</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/guide.html" class="nav-link">
+  文档
+</a></div><div class="nav-item"><a href="/video.html" class="nav-link">
+  视频
+</a></div><div class="nav-item"><a href="https://demo.crudapi.cn/crudapi/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  demo演示
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://crudapi.cn" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  crudapi首页
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/guide.html" class="nav-link">
+  文档
+</a></div><div class="nav-item"><a href="/video.html" class="nav-link">
+  视频
+</a></div><div class="nav-item"><a href="https://demo.crudapi.cn/crudapi/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  demo演示
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://crudapi.cn" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  crudapi首页
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/guide/" class="sidebar-heading clickable open"><span>文档</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/helloworld.html" class="sidebar-link">入门</a></li><li><a href="/sequence.html" class="sidebar-link">序列号</a></li><li><a href="/relation.html" class="sidebar-link">表关系</a></li><li><a href="/relations.html" aria-current="page" class="active sidebar-link">表关系高阶</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/dataquery.html" class="sidebar-link">数据查询</a></li><li><a href="/rbac.html" class="sidebar-link">RBAC动态权限</a></li><li><a href="/table.html" class="sidebar-link">表单设计</a></li><li><a href="/scenario.html" class="sidebar-link">应用场景</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>源码分析</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/crudapi-admin-web/helloworld.html" class="sidebar-link">入门</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/video/" class="sidebar-heading clickable"><span>视频</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/helloVideo.html" class="sidebar-link">入门</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>关于</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/about.html" class="sidebar-link">关于</a></li><li><a href="/contact.html" class="sidebar-link">联系</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="表关系高阶"><a href="#表关系高阶" class="header-anchor">#</a> 表关系高阶</h1> <p>在上一篇<a href="/relation.html"> 表关系管理 </a>中，介绍了订单中一对多、多对一、以及多对多关系，本文主要介绍一对一关系和无限主子表在crudapi系统中的应用。</p> <h3 id="概要"><a href="#概要" class="header-anchor">#</a> 概要</h3> <h4 id="一对一"><a href="#一对一" class="header-anchor">#</a> 一对一</h4> <p>一对一关系是指关系数据库中两个表之间的一种关系。关系数据库中第一个表中的单个行只可以与第二个表中的一个行相关，且第二个表中的一个行也只可以与第一个表中的一个行相关。<br>
+在一对多关系中，外键建立在子表中；在一对一关系中，外键可以建在主表或者子表中，为了保持一致，crudapi系统中统一将一对一关系中外键也建立在子表中，这样的好处是如果将来需要解除表关系的时候，无需修改主表结构。</p> <h4 id="客户资料"><a href="#客户资料" class="header-anchor">#</a> 客户资料</h4> <p>客户customer主表中，通常存放基本信息，如果有更多资料可以考虑单独存放在客户资料customerProfile表中，它们之间可以用一对一关系实现。</p> <h4 id="客户和客户资料-一对一-主子方向"><a href="#客户和客户资料-一对一-主子方向" class="header-anchor">#</a> 客户和客户资料：一对一（主子方向）</h4> <p><img src="/img/metadata/relation/customer.png" alt="customer">
+之前创建客户customer表保持不变</p> <p><img src="/img/metadata/relations/customerProfile.png" alt="customerProfile">
+创建客户资料customerProfile表，主要包括客户编号字段、生日、性别、爱好等，其中客户编号customerId字段用于建立表关系</p> <p><img src="/img/metadata/relations/profileRelation.png" alt="profileRelation">
+建立主子方向一对一关系，客户customer表的编号id字段，指向客户资料customerProfile的客户编号customerId字段，关系的英文名称profile用于查询关联对象的时候，设置导航属性名称为profile。</p> <h4 id="客户资料和客户-一对一-子主方向"><a href="#客户资料和客户-一对一-子主方向" class="header-anchor">#</a> 客户资料和客户：一对一（子主方向）</h4> <p><img src="/img/metadata/relations/customerRelation.png" alt="customerRelation">
+建立子主方向一对一关系，客户资料customerProfile的客户编号customerId字段，指向客户customer表的编号id字段，关系的英文名称customer用于查询关联对象的时候，设置导航属性名称为customer，和之前订单和客户多对一关系有点类似，关联对象都是customer对象，不过那个时候多个订单可以关联同一个客户，现在一个客户资料只能关联一个客户。</p> <h4 id="客户主子表级联保存"><a href="#客户主子表级联保存" class="header-anchor">#</a> 客户主子表级联保存</h4> <p><img src="/img/metadata/relations/createCustomer.png" alt="createCustomer">
+ui创建客户，同时输入子表客户资料信息，chrome打开网络请求记录，可以看到POST body如下：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token punctuation">{</span>
+    <span class="token string">&quot;name&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;刘备&quot;</span>,
+    <span class="token string">&quot;mobile&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;13699998888&quot;</span>,
+    <span class="token string">&quot;email&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;liubei@crudapi.cn&quot;</span>,
+    <span class="token string">&quot;profile&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+        <span class="token string">&quot;name&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;刘备资料&quot;</span>,
+        <span class="token string">&quot;birthday&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;2021-02-14&quot;</span>,
+        <span class="token string">&quot;sex&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;男&quot;</span>,
+        <span class="token string">&quot;hobby&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;骑马&quot;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>其中profile为客户资料信息，</p> <p><img src="/img/metadata/relations/editCustomer.png" alt="editCustomer">
+查询客户详情，发现客户和客户资料信息一次性保存成功！上一篇文章中，销售订单和订单行是一对多主子关系，
+子表是数组形式，在一对一主子关系中子表是对象形式，在数据库中表现形式是相同的，外键都是建在子表中。</p> <h4 id="直接操作客户资料"><a href="#直接操作客户资料" class="header-anchor">#</a> 直接操作客户资料</h4> <p><img src="/img/metadata/relations/editCustomerProfile.png" alt="editCustomerProfile">
+也可以直接创建客户资料表，选择挂在指定客户下，可以达到同样的效果。</p> <h4 id="无限子表"><a href="#无限子表" class="header-anchor">#</a> 无限子表</h4> <p>通过设置表关系，一对多和一对一（主子方向）理论上可以无限关联下去，所有的表一次性级联保存，比如省市区通常可以达到3级子表，目录文件属于无限子表。</p> <h4 id="省市区三级子表"><a href="#省市区三级子表" class="header-anchor">#</a> 省市区三级子表</h4> <p><img src="/img/metadata/relations/ssqGraph.png" alt="ssqGraph"></p> <p>省和市是一对多关系，市和区是一对多关系。</p> <p><img src="/img/metadata/relations/ssq.png" alt="ssq">
+ui效果，江苏省包括南京和淮安两个城市，南京市又包括江宁区和雨花台区。</p> <h4 id="目录无限子表"><a href="#目录无限子表" class="header-anchor">#</a> 目录无限子表</h4> <p>一级目录下可以包括子目录和文件，如果是子目录，子目录可以继续包括子目录和文件
+<img src="/img/metadata/relations/folder1.png" alt="folder1">
+图目录无限子表-1</p> <p><img src="/img/metadata/relations/folder2.png" alt="folder2">
+图目录无限子表-2</p> <p>ui效果，子表包括目录和文件，还可以继续展开下去，由于屏幕大小的原因，这里就不一一展示了。</p> <p>查询目录列表
+<img src="/img/metadata/relations/folders.png" alt="folders"></p> <h3 id="小结"><a href="#小结" class="header-anchor">#</a> 小结</h3> <p>本文介绍了一对一关系，包括主子方向和子主方向，加上一篇文章中一对多，多对一，多对多关系，到目前为止所有的表关系都实现了。crudapi系统通过配置的方式实现了对象之间的关联，无需编程实现了主子表CRUD操作。</p> <h3 id="附demo演示"><a href="#附demo演示" class="header-anchor">#</a> 附demo演示</h3> <p>本系统属于产品级的零代码平台，不同于自动代码生成器，不需要生成Controller、Service、Repository、Entity等业务代码，程序运行起来就可以使用，真正0代码，可以覆盖基本的和业务无关的CRUD RESTful API。</p> <p>官网地址：<a href="https://crudapi.cn" target="_blank" rel="noopener noreferrer">https://crudapi.cn<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a><br>
+测试地址：<a href="https://demo.crudapi.cn/crudapi/login" target="_blank" rel="noopener noreferrer">https://demo.crudapi.cn/crudapi/login<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h3 id="目录"><a href="#目录" class="header-anchor">#</a> 目录</h3> <h4 id="crudapi系列一-入门"><a href="#crudapi系列一-入门" class="header-anchor">#</a> <a href="/helloworld.html">crudapi系列一 入门</a></h4> <h4 id="crudapi系列二-序列号"><a href="#crudapi系列二-序列号" class="header-anchor">#</a> <a href="/sequence.html">crudapi系列二 序列号</a></h4> <h4 id="crudapi系列三-表关系"><a href="#crudapi系列三-表关系" class="header-anchor">#</a> <a href="/relation.html">crudapi系列三 表关系</a></h4> <h4 id="crudapi系列四-表关系高阶"><a href="#crudapi系列四-表关系高阶" class="header-anchor">#</a> <a href="/relations.html" aria-current="page" class="router-link-exact-active router-link-active">crudapi系列四 表关系高阶</a></h4> <h4 id="crudapi系列五-数据条件查询和分页"><a href="#crudapi系列五-数据条件查询和分页" class="header-anchor">#</a> <a href="/dataquery.html">crudapi系列五 数据条件查询和分页</a></h4> <h4 id="crudapi系列六-rbac权限模型"><a href="#crudapi系列六-rbac权限模型" class="header-anchor">#</a> <a href="/rbac.html">crudapi系列六 RBAC权限模型</a></h4> <h4 id="crudapi系列七-表单设计"><a href="#crudapi系列七-表单设计" class="header-anchor">#</a> <a href="/table.html">crudapi系列七 表单设计</a></h4> <h4 id="crudapi系列八-应用场景"><a href="#crudapi系列八-应用场景" class="header-anchor">#</a> <a href="/scenario.html">crudapi系列八 应用场景</a></h4></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/relation.html" class="prev">
+        表关系
+      </a></span> <span class="next"><a href="/dataquery.html">
+        数据查询
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.c403220e.js" defer></script><script src="/assets/js/2.5c93f19a.js" defer></script><script src="/assets/js/17.b4ce15f5.js" defer></script>
+  </body>
+</html>
