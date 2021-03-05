@@ -27,3 +27,11 @@ crudapi是crud+api组合，表示增删改查接口，是一款零代码可配�
 #### [crudapi系列七 表单设计](https://help.crudapi.cn/table.html) 
 #### [crudapi系列八 应用场景](https://help.crudapi.cn/scenario.html) 
 
+### crudapi-admin-web免费开源
+github repo
+[https://github.com/crudapi/crudapi-admin-web](https://github.com/crudapi/crudapi-admin-web)
+
+gitee repo
+[https://gitee.com/crudapi/crudapi-admin-web](https://gitee.com/crudapi/crudapi-admin-web)
+
+
