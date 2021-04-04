@@ -26,6 +26,14 @@ crudapi是crud+api组合，表示增删改查接口，是一款零代码可配�
 #### [crudapi系列六 RBAC权限模型](https://help.crudapi.cn/rbac.html) 
 #### [crudapi系列七 表单设计](https://help.crudapi.cn/table.html) 
 #### [crudapi系列八 应用场景](https://help.crudapi.cn/scenario.html) 
+#### [基于Vue和Quasar的前端SPA项目实战之环境搭建（一）](https://help.crudapi.cn/crudapi-admin-web/helloworld.html)  
+#### [基于Vue和Quasar的前端SPA项目实战之用户登录（二）](https://help.crudapi.cn/crudapi-admin-web/login.html)  
+#### [基于Vue和Quasar的前端SPA项目实战之布局菜单（三）](https://help.crudapi.cn/crudapi-admin-web/layout.html)  
+#### [基于Vue和Quasar的前端SPA项目实战之序列号（四）](https://help.crudapi.cn/crudapi-admin-web/sequence.html)  
+#### [基于Vue和Quasar的前端SPA项目实战之动态表单（五）](https://help.crudapi.cn/crudapi-admin-web/metadatatable.html)  
+#### [基于Vue和Quasar的前端SPA项目实战之表关系（六）](https://help.crudapi.cn/crudapi-admin-web/metadatarelation.html)  
+#### [基于Vue和Quasar的前端SPA项目实战之业务数据（七）](https://help.crudapi.cn/crudapi-admin-web/business.html)  
+#### [基于Vue和Quasar的前端SPA项目实战之docker部署（八）](https://help.crudapi.cn/crudapi-admin-web/docker.html)  
 
 ### crudapi-admin-web免费开源
 github repo
