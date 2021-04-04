@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>基于Vue和Quasar的前端SPA项目实战之docker部署（八） | crudapi</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    <link rel="icon" href="/img/logo.png">
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?ec2fa0f31ff94a4f99d699e528191142";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+      </script>
+    <meta name="description" content="crudapi增删改查接口,无需编程-以元数据为基础，无需编程，只需配置表单和关系即可。以最少的配置帮助你专注于业务。支持主子表，级联保存等;标准的RESTful API-默认生成CRUD API，支持标准的POST，PATCH，GET，DELETE等操作，丰富的Swagger API文档;Web后台UI-基于Material Design风格的UI，界面美观，使用方面。支持元数据的管理和业务数据的增删改查操作！curdapi, crduapi, crud, api">
+    
+    <link rel="preload" href="/assets/css/0.styles.d39084ab.css" as="style"><link rel="preload" href="/assets/js/app.a6be2a7a.js" as="script"><link rel="preload" href="/assets/js/2.5c93f19a.js" as="script"><link rel="preload" href="/assets/js/11.cc502bc4.js" as="script"><link rel="prefetch" href="/assets/js/10.b0309fe6.js"><link rel="prefetch" href="/assets/js/12.86228e96.js"><link rel="prefetch" href="/assets/js/13.990b9fdb.js"><link rel="prefetch" href="/assets/js/14.13319996.js"><link rel="prefetch" href="/assets/js/15.709d731b.js"><link rel="prefetch" href="/assets/js/16.e88feab8.js"><link rel="prefetch" href="/assets/js/17.6dfd32d0.js"><link rel="prefetch" href="/assets/js/18.e5cb093d.js"><link rel="prefetch" href="/assets/js/19.566bf9ae.js"><link rel="prefetch" href="/assets/js/20.b5a530f3.js"><link rel="prefetch" href="/assets/js/21.94b26dba.js"><link rel="prefetch" href="/assets/js/22.08ee232d.js"><link rel="prefetch" href="/assets/js/23.a177a1ec.js"><link rel="prefetch" href="/assets/js/24.f2276cd3.js"><link rel="prefetch" href="/assets/js/25.d5124f8d.js"><link rel="prefetch" href="/assets/js/26.abfb74de.js"><link rel="prefetch" href="/assets/js/27.7afeecbb.js"><link rel="prefetch" href="/assets/js/28.2fc78b22.js"><link rel="prefetch" href="/assets/js/29.ce21675d.js"><link rel="prefetch" href="/assets/js/3.0d7e8751.js"><link rel="prefetch" href="/assets/js/4.865692a8.js"><link rel="prefetch" href="/assets/js/5.81254301.js"><link rel="prefetch" href="/assets/js/6.6e8c67be.js"><link rel="prefetch" href="/assets/js/7.616ef4c7.js"><link rel="prefetch" href="/assets/js/8.a6e6d9f8.js"><link rel="prefetch" href="/assets/js/9.20b6c8b8.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.d39084ab.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.png" alt="crudapi" class="logo"> <span class="site-name can-hide">crudapi</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/guide.html" class="nav-link">
+  文档
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码" class="dropdown-title"><span class="title">源码</span> <span class="arrow down"></span></button> <button type="button" aria-label="源码" class="mobile-dropdown-title"><span class="title">源码</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/crudapi/crudapi-admin-web" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/crudapi/crudapi-admin-web" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><a href="https://demo.crudapi.cn/crudapi/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  demo演示
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://crudapi.cn" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  crudapi首页
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/guide.html" class="nav-link">
+  文档
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码" class="dropdown-title"><span class="title">源码</span> <span class="arrow down"></span></button> <button type="button" aria-label="源码" class="mobile-dropdown-title"><span class="title">源码</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/crudapi/crudapi-admin-web" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/crudapi/crudapi-admin-web" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><a href="https://demo.crudapi.cn/crudapi/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  demo演示
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://crudapi.cn" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  crudapi首页
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/guide/" class="sidebar-heading clickable"><span>文档</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/helloworld.html" class="sidebar-link">入门</a></li><li><a href="/sequence.html" class="sidebar-link">序列号</a></li><li><a href="/relation.html" class="sidebar-link">表关系</a></li><li><a href="/relations.html" class="sidebar-link">表关系高阶</a></li><li><a href="/dataquery.html" class="sidebar-link">数据查询</a></li><li><a href="/rbac.html" class="sidebar-link">RBAC动态权限</a></li><li><a href="/table.html" class="sidebar-link">表单设计</a></li><li><a href="/scenario.html" class="sidebar-link">应用场景</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/source/" class="sidebar-heading clickable open"><span>源码分析</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/crudapi-admin-web/helloworld.html" class="sidebar-link">环境搭建</a></li><li><a href="/crudapi-admin-web/login.html" class="sidebar-link">用户登录</a></li><li><a href="/crudapi-admin-web/layout.html" class="sidebar-link">菜单布局</a></li><li><a href="/crudapi-admin-web/sequence.html" class="sidebar-link">序列号</a></li><li><a href="/crudapi-admin-web/metadatatable.html" class="sidebar-link">动态表单</a></li><li><a href="/crudapi-admin-web/metadatarelation.html" class="sidebar-link">表关系</a></li><li><a href="/crudapi-admin-web/business.html" class="sidebar-link">业务数据</a></li><li><a href="/crudapi-admin-web/docker.html" aria-current="page" class="active sidebar-link">docker部署</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/crudapi-admin-web/docker.html#回顾" class="sidebar-link">回顾</a></li><li class="sidebar-sub-header"><a href="/crudapi-admin-web/docker.html#简介" class="sidebar-link">简介</a></li><li class="sidebar-sub-header"><a href="/crudapi-admin-web/docker.html#配置quasar-conf-js" class="sidebar-link">配置quasar.conf.js</a></li><li class="sidebar-sub-header"><a href="/crudapi-admin-web/docker.html#dockefile" class="sidebar-link">Dockefile</a></li><li class="sidebar-sub-header"><a href="/crudapi-admin-web/docker.html#nginx配置" class="sidebar-link">nginx配置</a></li><li class="sidebar-sub-header"><a href="/crudapi-admin-web/docker.html#dockerignore配置" class="sidebar-link">.dockerignore配置</a></li><li class="sidebar-sub-header"><a href="/crudapi-admin-web/docker.html#docker命令" class="sidebar-link">docker命令</a></li><li class="sidebar-sub-header"><a href="/crudapi-admin-web/docker.html#进行验证" class="sidebar-link">进行验证</a></li><li class="sidebar-sub-header"><a href="/crudapi-admin-web/docker.html#小结" class="sidebar-link">小结</a></li><li class="sidebar-sub-header"><a href="/crudapi-admin-web/docker.html#demo演示" class="sidebar-link">demo演示</a></li><li class="sidebar-sub-header"><a href="/crudapi-admin-web/docker.html#附源码地址" class="sidebar-link">附源码地址</a></li><li class="sidebar-sub-header"><a href="/crudapi-admin-web/docker.html#目录" class="sidebar-link">目录</a></li></ul></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/video/" class="sidebar-heading clickable"><span>视频</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/helloVideo.html" class="sidebar-link">入门</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>关于</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/about.html" class="sidebar-link">关于</a></li><li><a href="/contact.html" class="sidebar-link">联系</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="基于vue和quasar的前端spa项目实战之docker部署-八"><a href="#基于vue和quasar的前端spa项目实战之docker部署-八" class="header-anchor">#</a> 基于Vue和Quasar的前端SPA项目实战之docker部署（八）</h1> <h2 id="回顾"><a href="#回顾" class="header-anchor">#</a> 回顾</h2> <p>通过上一篇文章<a href="/crudapi-admin-web/business.html"> 基于Vue和Quasar的前端SPA项目实战之业务数据（七）</a>的介绍，crudapi-admin-web基本功能全部实现了，本文主要介绍前端打包和docker部署相关内容。</p> <h2 id="简介"><a href="#简介" class="header-anchor">#</a> 简介</h2> <p>Docker是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux或Windows 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。采用docker技术可以很方便地实现持续集成和交付CI/CD。</p> <h2 id="配置quasar-conf-js"><a href="#配置quasar-conf-js" class="header-anchor">#</a> 配置quasar.conf.js</h2> <div class="language-javascript extra-class"><pre class="language-javascript"><code>build<span class="token operator">:</span> <span class="token punctuation">{</span>
+  vueRouterMode<span class="token operator">:</span> <span class="token string">'history'</span><span class="token punctuation">,</span>
+  publicPath<span class="token operator">:</span> <span class="token string">'/crudapi/'</span><span class="token punctuation">,</span>
+  distDir<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">dist/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>ctx<span class="token punctuation">.</span>modeName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/crudapi</span><span class="token template-punctuation string">`</span></span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>通常将前端打包之后的文件放在一个子目录下，方便和其它系统集成，比如可以放在spring boot项目的resources/static/crudapi目录下，避免放在根目录，所以这里配置publicPath为crudapi。</p> <h2 id="dockefile"><a href="#dockefile" class="header-anchor">#</a> Dockefile</h2> <div class="language- extra-class"><pre class="language-text"><code>FROM node:lts-alpine as builder
+
+COPY package.json /crudapi-admin-web/package.json
+
+WORKDIR /crudapi-admin-web
+RUN npm install
+
+COPY . /crudapi-admin-web/
+
+WORKDIR /crudapi-admin-web
+
+RUN npm run build
+
+FROM nginx:latest
+
+WORKDIR /crudapi-admin-web
+
+COPY --from=builder /crudapi-admin-web/dist/spa .
+
+COPY ./docker/default.conf  /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
+</code></pre></div><p>构建分为两个阶段：</p> <ol><li>利用node镜像编译打包</li> <li>利用nginx镜像暴露80端口，提供http服务</li></ol> <p>优化：
+package.json放在第一步copy，目的是为了缓存，从而提高镜像构建速度，因为通常情况下package.json不会频繁修改，只要package.json不变，后面的npm install命令就不会重复构建。</p> <h2 id="nginx配置"><a href="#nginx配置" class="header-anchor">#</a> nginx配置</h2> <div class="language- extra-class"><pre class="language-text"><code>server {
+    listen       80;
+    server_name  localhost;
+
+    charset 'utf-8';
+    
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+
+    location ~ /api {
+      proxy_pass  http://demo.crudapi.cn;
+    }
+
+    location / {
+        root   /crudapi-admin-web;
+        index  index.html index.htm;
+        try_files $uri $uri/ /crudapi/index.html;
+    }
+}
+</code></pre></div><p>default.conf中主要配置两个location规则</p> <ol><li>api部分转发到http://demo.crudapi.cn，可以替换为其它有效地址</li> <li>其它内容永远访问/crudapi-admin-web/crudapi/index.html，vue内部自动处理路由</li></ol> <h2 id="dockerignore配置"><a href="#dockerignore配置" class="header-anchor">#</a> .dockerignore配置</h2> <div class="language- extra-class"><pre class="language-text"><code>.DS_Store
+.git
+.gitignore
+node_modules
+dist
+.quasar
+.vscode
+.dockerignore
+package-lock.json
+Dockerfile
+*.md
+</code></pre></div><p>dockerignore排除的不需要的文件，避免构建过程中copy无用文件。</p> <h2 id="docker命令"><a href="#docker命令" class="header-anchor">#</a> docker命令</h2> <p>本地打包docker和运行</p> <div class="language-bash extra-class"><pre class="language-bash"><code>docker build -t crudapi-admin-web:latest <span class="token builtin class-name">.</span>
+docker <span class="token function">rm</span> -f crudapi-admin-web
+docker run -d -p <span class="token number">80</span>:80 --name crudapi-admin-web crudapi-admin-web:latest
+docker <span class="token function">ps</span> <span class="token operator">|</span> <span class="token function">grep</span> crudapi-admin-web
+</code></pre></div><p>最新的docker镜像已经自动上传到docker官网hub<a href="https://hub.docker.com/repository/docker/crudapi/crudapi-admin-web" target="_blank" rel="noopener noreferrer">https://hub.docker.com/repository/docker/crudapi/crudapi-admin-web<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>，直接pull也可以。</p> <div class="language-bash extra-class"><pre class="language-bash"><code>docker pull crudapi/crudapi-admin-web:latest
+docker tag crudapi/crudapi-admin-web:latest crudapi-nginx:latest
+</code></pre></div><h2 id="进行验证"><a href="#进行验证" class="header-anchor">#</a> 进行验证</h2> <p><img src="/img/crudapi-admin-web/docker/demo.png" alt="demo">
+访问 <a href="http://127.0.0.1/crudapi" target="_blank" rel="noopener noreferrer">http://127.0.0.1/crudapi<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="小结"><a href="#小结" class="header-anchor">#</a> 小结</h2> <p>本文主要介绍了vue前端打包和docker部署相关内容，到目前为止，crudapi-admin-web代码已经完成，后续会继续优化代码，文档也会持续更新。每一篇文章对应的代码，都打上了tag，命名规则为t1,t2..., 欢迎下载代码学习和交流。</p> <h2 id="demo演示"><a href="#demo演示" class="header-anchor">#</a> demo演示</h2> <p>官网地址：<a href="https://crudapi.cn" target="_blank" rel="noopener noreferrer">https://crudapi.cn<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a><br>
+测试地址：<a href="https://demo.crudapi.cn/crudapi/login" target="_blank" rel="noopener noreferrer">https://demo.crudapi.cn/crudapi/login<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="附源码地址"><a href="#附源码地址" class="header-anchor">#</a> 附源码地址</h2> <h3 id="github地址"><a href="#github地址" class="header-anchor">#</a> GitHub地址</h3> <p><a href="https://github.com/crudapi/crudapi-admin-web" target="_blank" rel="noopener noreferrer">https://github.com/crudapi/crudapi-admin-web<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h3 id="gitee地址"><a href="#gitee地址" class="header-anchor">#</a> Gitee地址</h3> <p><a href="https://gitee.com/crudapi/crudapi-admin-web" target="_blank" rel="noopener noreferrer">https://gitee.com/crudapi/crudapi-admin-web<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>由于网络原因，GitHub可能速度慢，改成访问Gitee即可，代码同步更新。</p> <h2 id="目录"><a href="#目录" class="header-anchor">#</a> 目录</h2> <h4 id="基于vue和quasar的前端spa项目实战之环境搭建-一"><a href="#基于vue和quasar的前端spa项目实战之环境搭建-一" class="header-anchor">#</a> <a href="/crudapi-admin-web/helloworld.html">基于Vue和Quasar的前端SPA项目实战之环境搭建（一）</a></h4> <h4 id="基于vue和quasar的前端spa项目实战之用户登录-二"><a href="#基于vue和quasar的前端spa项目实战之用户登录-二" class="header-anchor">#</a> <a href="/crudapi-admin-web/login.html">基于Vue和Quasar的前端SPA项目实战之用户登录（二）</a></h4> <h4 id="基于vue和quasar的前端spa项目实战之布局菜单-三"><a href="#基于vue和quasar的前端spa项目实战之布局菜单-三" class="header-anchor">#</a> <a href="/crudapi-admin-web/layout.html">基于Vue和Quasar的前端SPA项目实战之布局菜单（三）</a></h4> <h4 id="基于vue和quasar的前端spa项目实战之序列号-四"><a href="#基于vue和quasar的前端spa项目实战之序列号-四" class="header-anchor">#</a> <a href="/crudapi-admin-web/sequence.html">基于Vue和Quasar的前端SPA项目实战之序列号（四）</a></h4> <h4 id="基于vue和quasar的前端spa项目实战之动态表单-五"><a href="#基于vue和quasar的前端spa项目实战之动态表单-五" class="header-anchor">#</a> <a href="/crudapi-admin-web/metadatatable.html">基于Vue和Quasar的前端SPA项目实战之动态表单（五）</a></h4> <h4 id="基于vue和quasar的前端spa项目实战之表关系-六"><a href="#基于vue和quasar的前端spa项目实战之表关系-六" class="header-anchor">#</a> <a href="/crudapi-admin-web/metadatarelation.html">基于Vue和Quasar的前端SPA项目实战之表关系（六）</a></h4> <h4 id="基于vue和quasar的前端spa项目实战之业务数据-七"><a href="#基于vue和quasar的前端spa项目实战之业务数据-七" class="header-anchor">#</a> <a href="/crudapi-admin-web/business.html">基于Vue和Quasar的前端SPA项目实战之业务数据（七）</a></h4> <h4 id="基于vue和quasar的前端spa项目实战之docker部署-八-2"><a href="#基于vue和quasar的前端spa项目实战之docker部署-八-2" class="header-anchor">#</a> <a href="/crudapi-admin-web/docker.html" aria-current="page" class="router-link-exact-active router-link-active">基于Vue和Quasar的前端SPA项目实战之docker部署（八）</a></h4></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/crudapi-admin-web/business.html" class="prev">
+        业务数据
+      </a></span> <span class="next"><a href="/helloVideo.html">
+        入门
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.a6be2a7a.js" defer></script><script src="/assets/js/2.5c93f19a.js" defer></script><script src="/assets/js/11.cc502bc4.js" defer></script>
+  </body>
+</html>
