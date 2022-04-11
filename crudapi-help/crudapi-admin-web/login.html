@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>基于Vue和Quasar的前端SPA项目实战之用户登录（二） | crudapi</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/crudapi-help/img/logo.png">
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          if (window.location.hostname === "help.crudapi.cn") {
+            console.info("init baidu tongji!");
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?ec2fa0f31ff94a4f99d699e528191142";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+          } else {
+            console.info("skip baidu tongji!");
+          }
+        })();
+      </script>
+    <meta name="description" content="crudapi增删改查接口,无需编程-以元数据为基础，无需编程，只需配置表单和关系即可。以最少的配置帮助你专注于业务。支持主子表，级联保存等;标准的RESTful API-默认生成CRUD API，支持标准的POST，PATCH，GET，DELETE等操作，丰富的Swagger API文档;Web后台UI-基于Material Design风格的UI，界面美观，使用方面。支持元数据的管理和业务数据的增删改查操作！curdapi, crduapi, crud, api">
+    
+    <link rel="preload" href="/crudapi-help/assets/css/0.styles.a8d3a4a5.css" as="style"><link rel="preload" href="/crudapi-help/assets/js/app.fd54faef.js" as="script"><link rel="preload" href="/crudapi-help/assets/js/2.3ea03963.js" as="script"><link rel="preload" href="/crudapi-help/assets/js/19.84b5dda4.js" as="script"><link rel="prefetch" href="/crudapi-help/assets/js/10.703aea90.js"><link rel="prefetch" href="/crudapi-help/assets/js/11.4e13bce3.js"><link rel="prefetch" href="/crudapi-help/assets/js/12.1e67ede9.js"><link rel="prefetch" href="/crudapi-help/assets/js/13.34077c1d.js"><link rel="prefetch" href="/crudapi-help/assets/js/14.c7b16ee3.js"><link rel="prefetch" href="/crudapi-help/assets/js/15.83f985fa.js"><link rel="prefetch" href="/crudapi-help/assets/js/16.5b73909b.js"><link rel="prefetch" href="/crudapi-help/assets/js/17.2aa93d00.js"><link rel="prefetch" href="/crudapi-help/assets/js/18.9b1e338a.js"><link rel="prefetch" href="/crudapi-help/assets/js/20.fe1ad0c3.js"><link rel="prefetch" href="/crudapi-help/assets/js/21.89635734.js"><link rel="prefetch" href="/crudapi-help/assets/js/22.49213ffa.js"><link rel="prefetch" href="/crudapi-help/assets/js/23.f61eb426.js"><link rel="prefetch" href="/crudapi-help/assets/js/24.14be03de.js"><link rel="prefetch" href="/crudapi-help/assets/js/25.bb8a1e36.js"><link rel="prefetch" href="/crudapi-help/assets/js/26.44671c09.js"><link rel="prefetch" href="/crudapi-help/assets/js/27.a1a27822.js"><link rel="prefetch" href="/crudapi-help/assets/js/28.b28f98c4.js"><link rel="prefetch" href="/crudapi-help/assets/js/29.4ebf5df2.js"><link rel="prefetch" href="/crudapi-help/assets/js/3.0b014aa8.js"><link rel="prefetch" href="/crudapi-help/assets/js/30.65b57bb5.js"><link rel="prefetch" href="/crudapi-help/assets/js/31.57d6b331.js"><link rel="prefetch" href="/crudapi-help/assets/js/32.1caa9e04.js"><link rel="prefetch" href="/crudapi-help/assets/js/33.ba772d8e.js"><link rel="prefetch" href="/crudapi-help/assets/js/34.3e551ec6.js"><link rel="prefetch" href="/crudapi-help/assets/js/35.2bcfef17.js"><link rel="prefetch" href="/crudapi-help/assets/js/36.82274bae.js"><link rel="prefetch" href="/crudapi-help/assets/js/37.9e514629.js"><link rel="prefetch" href="/crudapi-help/assets/js/38.fc7b7c91.js"><link rel="prefetch" href="/crudapi-help/assets/js/39.a0107caf.js"><link rel="prefetch" href="/crudapi-help/assets/js/4.97c039ba.js"><link rel="prefetch" href="/crudapi-help/assets/js/40.e4ce0ba4.js"><link rel="prefetch" href="/crudapi-help/assets/js/41.6ca57eb7.js"><link rel="prefetch" href="/crudapi-help/assets/js/42.e72af727.js"><link rel="prefetch" href="/crudapi-help/assets/js/43.3a80e2b4.js"><link rel="prefetch" href="/crudapi-help/assets/js/44.ca298799.js"><link rel="prefetch" href="/crudapi-help/assets/js/45.ebd67428.js"><link rel="prefetch" href="/crudapi-help/assets/js/46.91f2af17.js"><link rel="prefetch" href="/crudapi-help/assets/js/47.ced7f29c.js"><link rel="prefetch" href="/crudapi-help/assets/js/5.c31107b6.js"><link rel="prefetch" href="/crudapi-help/assets/js/6.004ca1a2.js"><link rel="prefetch" href="/crudapi-help/assets/js/7.70895b3d.js"><link rel="prefetch" href="/crudapi-help/assets/js/8.a1b85dde.js"><link rel="prefetch" href="/crudapi-help/assets/js/9.467afa15.js">
+    <link rel="stylesheet" href="/crudapi-help/assets/css/0.styles.a8d3a4a5.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/crudapi-help/" class="home-link router-link-active"><img src="/crudapi-help/img/logo.png" alt="crudapi" class="logo"> <span class="site-name can-hide">crudapi</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/crudapi-help/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/crudapi-help/guide.html" class="nav-link">
+  文档
+</a></div><div class="nav-item"><a href="/crudapi-help/helloVideo.html" class="nav-link">
+  视频
+</a></div><div class="nav-item"><a href="/crudapi-help/success.html" class="nav-link">
+  成功案例
+</a></div><div class="nav-item"><a href="https://demo.crudapi.cn/crudapi/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  demo演示
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码" class="dropdown-title"><span class="title">源码</span> <span class="arrow down"></span></button> <button type="button" aria-label="源码" class="mobile-dropdown-title"><span class="title">源码</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/crudapi/crudapi-admin-web" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/crudapi/crudapi-admin-web" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><a href="https://crudapi.cn" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  crudapi首页
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/crudapi-help/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/crudapi-help/guide.html" class="nav-link">
+  文档
+</a></div><div class="nav-item"><a href="/crudapi-help/helloVideo.html" class="nav-link">
+  视频
+</a></div><div class="nav-item"><a href="/crudapi-help/success.html" class="nav-link">
+  成功案例
+</a></div><div class="nav-item"><a href="https://demo.crudapi.cn/crudapi/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  demo演示
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="源码" class="dropdown-title"><span class="title">源码</span> <span class="arrow down"></span></button> <button type="button" aria-label="源码" class="mobile-dropdown-title"><span class="title">源码</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/crudapi/crudapi-admin-web" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/crudapi/crudapi-admin-web" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><a href="https://crudapi.cn" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  crudapi首页
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/crudapi-help/guide/" class="sidebar-heading clickable"><span>功能介绍</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/crudapi-help/helloworld.html" class="sidebar-link">入门</a></li><li><a href="/crudapi-help/sequence.html" class="sidebar-link">序列号</a></li><li><a href="/crudapi-help/relation.html" class="sidebar-link">表关系</a></li><li><a href="/crudapi-help/relations.html" class="sidebar-link">表关系高阶</a></li><li><a href="/crudapi-help/dataquery.html" class="sidebar-link">数据查询</a></li><li><a href="/crudapi-help/rbac.html" class="sidebar-link">RBAC动态权限</a></li><li><a href="/crudapi-help/table.html" class="sidebar-link">表单设计</a></li><li><a href="/crudapi-help/scenario.html" class="sidebar-link">应用场景</a></li><li><a href="/crudapi-help/database.html" class="sidebar-link">多数据库支持</a></li><li><a href="/crudapi-help/oracle.html" class="sidebar-link">甲骨文oracle数据库</a></li><li><a href="/crudapi-help/mssql.html" class="sidebar-link">微软mssql数据库</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/crudapi-help/source/" class="sidebar-heading clickable open"><span>前端源码分析</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/crudapi-help/crudapi-admin-web/helloworld.html" class="sidebar-link">环境搭建</a></li><li><a href="/crudapi-help/crudapi-admin-web/login.html" aria-current="page" class="active sidebar-link">用户登录</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/crudapi-help/crudapi-admin-web/login.html#回顾" class="sidebar-link">回顾</a></li><li class="sidebar-sub-header"><a href="/crudapi-help/crudapi-admin-web/login.html#简介" class="sidebar-link">简介</a></li><li class="sidebar-sub-header"><a href="/crudapi-help/crudapi-admin-web/login.html#技术调研" class="sidebar-link">技术调研</a></li><li class="sidebar-sub-header"><a href="/crudapi-help/crudapi-admin-web/login.html#登录流程" class="sidebar-link">登录流程</a></li><li class="sidebar-sub-header"><a href="/crudapi-help/crudapi-admin-web/login.html#ui界面" class="sidebar-link">UI界面</a></li><li class="sidebar-sub-header"><a href="/crudapi-help/crudapi-admin-web/login.html#代码结构" class="sidebar-link">代码结构</a></li><li class="sidebar-sub-header"><a href="/crudapi-help/crudapi-admin-web/login.html#配置文件" class="sidebar-link">配置文件</a></li><li class="sidebar-sub-header"><a href="/crudapi-help/crudapi-admin-web/login.html#核心代码" class="sidebar-link">核心代码</a></li><li class="sidebar-sub-header"><a href="/crudapi-help/crudapi-admin-web/login.html#配置quasar-conf-js" class="sidebar-link">配置quasar.conf.js</a></li><li class="sidebar-sub-header"><a href="/crudapi-help/crudapi-admin-web/login.html#配置全局样式" class="sidebar-link">配置全局样式</a></li><li class="sidebar-sub-header"><a href="/crudapi-help/crudapi-admin-web/login.html#封装axios" class="sidebar-link">封装axios</a></li><li class="sidebar-sub-header"><a href="/crudapi-help/crudapi-admin-web/login.html#用户api和service" class="sidebar-link">用户api和service</a></li><li class="sidebar-sub-header"><a href="/crudapi-help/crudapi-admin-web/login.html#vuex管理登录状态" class="sidebar-link">Vuex管理登录状态</a></li><li class="sidebar-sub-header"><a href="/crudapi-help/crudapi-admin-web/login.html#路由跳转管理" class="sidebar-link">路由跳转管理</a></li><li class="sidebar-sub-header"><a href="/crudapi-help/crudapi-admin-web/login.html#登录页面" class="sidebar-link">登录页面</a></li><li class="sidebar-sub-header"><a href="/crudapi-help/crudapi-admin-web/login.html#配置devserver代理" class="sidebar-link">配置devServer代理</a></li><li class="sidebar-sub-header"><a href="/crudapi-help/crudapi-admin-web/login.html#验证" class="sidebar-link">验证</a></li><li class="sidebar-sub-header"><a href="/crudapi-help/crudapi-admin-web/login.html#小结" class="sidebar-link">小结</a></li><li class="sidebar-sub-header"><a href="/crudapi-help/crudapi-admin-web/login.html#demo演示" class="sidebar-link">demo演示</a></li><li class="sidebar-sub-header"><a href="/crudapi-help/crudapi-admin-web/login.html#附源码地址" class="sidebar-link">附源码地址</a></li><li class="sidebar-sub-header"><a href="/crudapi-help/crudapi-admin-web/login.html#目录" class="sidebar-link">目录</a></li></ul></li><li><a href="/crudapi-help/crudapi-admin-web/layout.html" class="sidebar-link">菜单布局</a></li><li><a href="/crudapi-help/crudapi-admin-web/sequence.html" class="sidebar-link">序列号</a></li><li><a href="/crudapi-help/crudapi-admin-web/metadatatable.html" class="sidebar-link">动态表单</a></li><li><a href="/crudapi-help/crudapi-admin-web/metadatarelation.html" class="sidebar-link">表关系</a></li><li><a href="/crudapi-help/crudapi-admin-web/business.html" class="sidebar-link">业务数据</a></li><li><a href="/crudapi-help/crudapi-admin-web/docker.html" class="sidebar-link">docker部署</a></li><li><a href="/crudapi-help/crudapi-admin-web/import.html" class="sidebar-link">数据导入</a></li><li><a href="/crudapi-help/crudapi-admin-web/fileupload.html" class="sidebar-link">文件上传</a></li><li><a href="/crudapi-help/crudapi-admin-web/unionindex.html" class="sidebar-link">联合索引</a></li><li><a href="/crudapi-help/crudapi-admin-web/dbfirst.html" class="sidebar-link">数据库逆向</a></li><li><a href="/crudapi-help/crudapi-admin-web/export.html" class="sidebar-link">数据导出</a></li><li><a href="/crudapi-help/crudapi-admin-web/module.html" class="sidebar-link">模块管理</a></li><li><a href="/crudapi-help/crudapi-admin-web/metadataexportimport.html" class="sidebar-link">元数据导出导入</a></li><li><a href="/crudapi-help/crudapi-admin-web/formbuilder.html" class="sidebar-link">拖拽表单定制</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/crudapi-help/develop/" class="sidebar-heading clickable"><span>后端二次开发</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/crudapi-help/crudapi-example/helloworld.html" class="sidebar-link">环境搭建</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/crudapi-help/video/" class="sidebar-heading clickable"><span>视频</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/crudapi-help/helloVideo.html" class="sidebar-link">入门</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/crudapi-help/success/" class="sidebar-heading clickable"><span>成功案例</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/crudapi-help/crudapi-success-story/unionCard.html" class="sidebar-link">商会联盟卡</a></li><li><a href="/crudapi-help/crudapi-success-story/vote.html" class="sidebar-link">金茶王投票</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/crudapi-help/price/" class="sidebar-heading clickable"><span>价格</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/crudapi-help/promotion/code.html" class="sidebar-link">源码版五折</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>关于</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/crudapi-help/about.html" class="sidebar-link">关于</a></li><li><a href="/crudapi-help/contact.html" class="sidebar-link">联系</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="基于vue和quasar的前端spa项目实战之用户登录-二"><a href="#基于vue和quasar的前端spa项目实战之用户登录-二" class="header-anchor">#</a> 基于Vue和Quasar的前端SPA项目实战之用户登录（二）</h1> <h2 id="回顾"><a href="#回顾" class="header-anchor">#</a> 回顾</h2> <p>通过上一篇文章 <a href="/crudapi-help/crudapi-admin-web/helloworld.html">基于Vue和Quasar的前端SPA项目实战之环境搭建（一）</a>的介绍，我们已经搭建好本地开发环境并且运行成功了，今天主要介绍登录功能。</p> <h2 id="简介"><a href="#简介" class="header-anchor">#</a> 简介</h2> <p>通常为了安全考虑，需要用户登录之后才可以访问。crudapi admin web项目也需要引入登录功能，用户登录成功之后，跳转到管理页面，否则提示没有权限。</p> <h2 id="技术调研"><a href="#技术调研" class="header-anchor">#</a> 技术调研</h2> <h3 id="session"><a href="#session" class="header-anchor">#</a> SESSION</h3> <p>SESSION通常会用到Cookie，Cookie有时也用其复数形式Cookies。类型为“小型文本文件”，是某些网站为了辨别用户身份，进行Session跟踪而储存在用户本地终端上的数据（通常经过加密），由用户客户端计算机暂时或永久保存的信息。<br>
+用户登录成功后，后台服务记录登录状态，并用SESSIONID进行唯一识别。浏览器通过Cookie记录了SESSIONID之后，下一次访问同一域名下的任何网页的时候会自动带上包含SESSIONID信息的Cookie，这样后台就可以判断用户是否已经登录过了，从而进行下一步动作。优点是使用方便，浏览器自动处理Cookie，缺点是容易受到XSS攻击。</p> <h3 id="jwt-token"><a href="#jwt-token" class="header-anchor">#</a> JWT Token</h3> <p>Json web token (JWT), 是为了在网络应用环境间传递声明而执行的一种基于JSON的开放标准（(RFC 7519).该token被设计为紧凑且安全的，特别适用于分布式站点的单点登录（SSO）场景。JWT的声明一般被用来在身份提供者和服务提供者间传递被认证的用户身份信息，以便于从资源服务器获取资源，也可以增加一些额外的其它业务逻辑所必须的声明信息，该token也可直接被用于认证，也可被加密。<br>
+JWT校验方式更加简单便捷化，无需通过缓存，而是直接根据token取出保存的用户信息，以及对token可用性校验，单点登录更为简单。缺点是注销不是很方便，并且因为JWT Token是base64加密，可能有安全方面隐患。<br>
+因为目前系统主要是在浏览器环境中使用，所以选择了SESSION的登录方式，后续考虑使用JWT登录方式，JWT更适合APP和小程序场景。</p> <h2 id="登录流程"><a href="#登录流程" class="header-anchor">#</a> 登录流程</h2> <p><img src="/img/crudapi-admin-web/login/flow.png" alt="登录流程图">
+主要流程如下：</p> <ol><li>用户打开页面的时候，首先判断是否属于白名单列表，如果属于，比如/login, /403, 直接放行。</li> <li>本地local Storage如果保存了登录信息，说明之前登录过，直接放行。</li> <li>如果没有登录过，本地local Storage为空，跳转到登录页面。</li> <li>虽然本地登录过了，但是可能过期了，这时候访问任意一个API时候，会自动根据返回结果判断是否登录。</li></ol> <h2 id="ui界面"><a href="#ui界面" class="header-anchor">#</a> UI界面</h2> <p><img src="/img/crudapi-admin-web/login/login.png" alt="登录页面">
+登录页面比较简单，主要包括用户名、密码输入框和登录按钮，点击登录按钮会调用登录API。</p> <h2 id="代码结构"><a href="#代码结构" class="header-anchor">#</a> 代码结构</h2> <p><img src="/img/crudapi-admin-web/login/code.png" alt="代码结构"></p> <ol><li>api: 通过axios与后台api交互</li> <li>assets：主要是一些图片之类的</li> <li>boot：动态加载库，比如axios、i18n等</li> <li>components：自定义组件</li> <li>css：css样式</li> <li>i18n：多语言信息</li> <li>layouts：布局</li> <li>pages：页面，包括了html，css和js三部分内容</li> <li>router：路由相关</li> <li>service：业务service，对api进行封装</li> <li>store：Vuex状态管理，Vuex 是实现组件全局状态(数据)管理的一种机制，可以方便的实现组件之间数据的共享</li></ol> <h2 id="配置文件"><a href="#配置文件" class="header-anchor">#</a> 配置文件</h2> <p>quasar.conf.js是全局配置文件，所有的配置相关内容都可以这个文件里面设置。</p> <h2 id="核心代码"><a href="#核心代码" class="header-anchor">#</a> 核心代码</h2> <h2 id="配置quasar-conf-js"><a href="#配置quasar-conf-js" class="header-anchor">#</a> 配置quasar.conf.js</h2> <div class="language-javascript extra-class"><pre class="language-javascript"><code>plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">'LocalStorage'</span><span class="token punctuation">,</span>
+    <span class="token string">'Notify'</span><span class="token punctuation">,</span>
+    <span class="token string">'Loading'</span>
+<span class="token punctuation">]</span>
+</code></pre></div><p>因为需要用到本地存储LocalStorage，消息提示Notify和等待提示Loading插件，所以在plugins里面添加。</p> <h2 id="配置全局样式"><a href="#配置全局样式" class="header-anchor">#</a> 配置全局样式</h2> <p>修改文件quasar.variables.styl和app.styl, 比如设置主颜色为淡蓝色</p> <div class="language- extra-class"><pre class="language-text"><code>$primary = #35C8E8
+</code></pre></div><h2 id="封装axios"><a href="#封装axios" class="header-anchor">#</a> 封装axios</h2> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token keyword">import</span> axios <span class="token keyword">from</span> <span class="token string">'axios'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Notify <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;quasar&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> qs <span class="token keyword">from</span> <span class="token string">&quot;qs&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Router <span class="token keyword">from</span> <span class="token string">&quot;../router/index&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> permissionService <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;../service&quot;</span><span class="token punctuation">;</span>
+
+<span class="token class-name">Vue</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>$axios <span class="token operator">=</span> axios
+
+<span class="token comment">// We create our own axios instance and set a custom base URL.</span>
+<span class="token comment">// Note that if we wouldn't set any config here we do not need</span>
+<span class="token comment">// a named export, as we could just `import axios from 'axios'`</span>
+<span class="token keyword">const</span> axiosInstance <span class="token operator">=</span> axios<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  baseURL<span class="token operator">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">API</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+axiosInstance<span class="token punctuation">.</span>defaults<span class="token punctuation">.</span>transformRequest <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">data<span class="token punctuation">,</span> headers</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Do whatever you want to transform the data</span>
+    <span class="token keyword">let</span> contentType <span class="token operator">=</span> headers<span class="token punctuation">[</span><span class="token string">&quot;Content-Type&quot;</span><span class="token punctuation">]</span> <span class="token operator">||</span> headers<span class="token punctuation">[</span><span class="token string">&quot;content-type&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>contentType<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      contentType <span class="token operator">=</span> <span class="token string">&quot;application/json&quot;</span><span class="token punctuation">;</span>
+      headers<span class="token punctuation">[</span><span class="token string">&quot;Content-Type&quot;</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">&quot;application/json&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>contentType<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">&quot;multipart/form-data&quot;</span><span class="token punctuation">)</span> <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> data<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>contentType<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">&quot;application/x-www-form-urlencoded&quot;</span><span class="token punctuation">)</span> <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> qs<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Add a request interceptor</span>
+axiosInstance<span class="token punctuation">.</span>interceptors<span class="token punctuation">.</span>request<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>
+  <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">config</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>config<span class="token punctuation">.</span>permission <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>permissionService<span class="token punctuation">.</span><span class="token function">check</span><span class="token punctuation">(</span>config<span class="token punctuation">.</span>permission<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">throw</span> <span class="token punctuation">{</span>
+        message<span class="token operator">:</span> <span class="token string">&quot;403 forbidden&quot;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> config<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Do something with request error</span>
+    <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">login</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    Router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      path<span class="token operator">:</span> <span class="token string">&quot;/login&quot;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Add a response interceptor</span>
+axiosInstance<span class="token punctuation">.</span>interceptors<span class="token punctuation">.</span>response<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>
+  <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">response</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Any status code that lie within the range of 2xx cause this function to trigger</span>
+    <span class="token comment">// Do something with response data</span>
+    <span class="token keyword">return</span> response<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Any status codes that falls outside the range of 2xx cause this function to trigger</span>
+    <span class="token comment">// Do something with response error</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>error<span class="token punctuation">.</span>response<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>error<span class="token punctuation">.</span>response<span class="token punctuation">.</span>status <span class="token operator">===</span> <span class="token number">401</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Notify<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+          message<span class="token operator">:</span>  error<span class="token punctuation">.</span>response<span class="token punctuation">.</span>data<span class="token punctuation">.</span>message<span class="token punctuation">,</span>
+          type<span class="token operator">:</span> <span class="token string">'negative'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">login</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>error<span class="token punctuation">.</span>response<span class="token punctuation">.</span>data <span class="token operator">&amp;&amp;</span> error<span class="token punctuation">.</span>response<span class="token punctuation">.</span>data<span class="token punctuation">.</span>message<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Notify<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+          message<span class="token operator">:</span> error<span class="token punctuation">.</span>response<span class="token punctuation">.</span>data<span class="token punctuation">.</span>message<span class="token punctuation">,</span>
+          type<span class="token operator">:</span> <span class="token string">'negative'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        Notify<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+          message<span class="token operator">:</span> error<span class="token punctuation">.</span>response<span class="token punctuation">.</span>statusText <span class="token operator">||</span> error<span class="token punctuation">.</span>response<span class="token punctuation">.</span>status<span class="token punctuation">,</span>
+          type<span class="token operator">:</span> <span class="token string">'negative'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>error<span class="token punctuation">.</span>message<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">&quot;timeout&quot;</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      Notify<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        message<span class="token operator">:</span> <span class="token string">&quot;Network timeout&quot;</span><span class="token punctuation">,</span>
+        type<span class="token operator">:</span> <span class="token string">'negative'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>error<span class="token punctuation">.</span>message<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      Notify<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        message<span class="token operator">:</span> error<span class="token punctuation">.</span>message<span class="token punctuation">,</span>
+        type<span class="token operator">:</span> <span class="token string">'negative'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      Notify<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        message<span class="token operator">:</span> <span class="token string">&quot;http request error&quot;</span><span class="token punctuation">,</span>
+        type<span class="token operator">:</span> <span class="token string">'negative'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// for use inside Vue files through this.$axios</span>
+<span class="token class-name">Vue</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>$axios <span class="token operator">=</span> axiosInstance
+
+<span class="token comment">// Here we define a named export</span>
+<span class="token comment">// that we can later use inside .js files:</span>
+<span class="token keyword">export</span> <span class="token punctuation">{</span> axiosInstance <span class="token punctuation">}</span>
+</code></pre></div><p>axios配置一个实例，做一些统一处理，比如网络请求数据预处理，验证权限，401跳转，403提示等。</p> <h2 id="用户api和service"><a href="#用户api和service" class="header-anchor">#</a> 用户api和service</h2> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> axiosInstance <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;boot/axios&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token constant">HEADERS</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token string">&quot;Content-Type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;application/x-www-form-urlencoded&quot;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function-variable function">login</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> axiosInstance<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">&quot;/api/auth/login&quot;</span><span class="token punctuation">,</span>
+      data<span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        headers<span class="token operator">:</span> <span class="token constant">HEADERS</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">logout</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> axiosInstance<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;/api/auth/logout&quot;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        headers<span class="token operator">:</span> <span class="token constant">HEADERS</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token punctuation">{</span> user <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>登录api为/api/auth/login，注销api为/api/auth/logout</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> user<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;../api&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> LocalStorage <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;quasar&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> userService <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function-variable function">login</span><span class="token operator">:</span> <span class="token keyword">async</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> res <span class="token operator">=</span> <span class="token keyword">await</span> user<span class="token punctuation">.</span><span class="token function">login</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> res<span class="token punctuation">.</span>data<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">logout</span><span class="token operator">:</span> <span class="token keyword">async</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> res <span class="token operator">=</span> <span class="token keyword">await</span> user<span class="token punctuation">.</span><span class="token function">logout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> res<span class="token punctuation">.</span>data<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">getUserInfo</span><span class="token operator">:</span> <span class="token keyword">async</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> LocalStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">&quot;userInfo&quot;</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">setUserInfo</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">userInfo</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    LocalStorage<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">&quot;userInfo&quot;</span><span class="token punctuation">,</span> userInfo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token punctuation">{</span> userService <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>用户service主要是对api的封装，然后还提供保存用户信息到LocalStorage接口</p> <h2 id="vuex管理登录状态"><a href="#vuex管理登录状态" class="header-anchor">#</a> Vuex管理登录状态</h2> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> userService <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;../../service&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> permissionService <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;../../service&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">login</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> commit <span class="token punctuation">}</span><span class="token punctuation">,</span> userInfo</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    userService
+      <span class="token punctuation">.</span><span class="token function">login</span><span class="token punctuation">(</span>userInfo<span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">data</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          <span class="token comment">//session方式登录，其实不需要token，这里为了JWT登录预留，用username代替。</span>
+          <span class="token comment">//通过Token是否为空判断本地有没有登录过，方便后续处理。</span>
+          <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">&quot;updateToken&quot;</span><span class="token punctuation">,</span> data<span class="token punctuation">.</span>principal<span class="token punctuation">.</span>username<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+          <span class="token keyword">const</span> newUserInfo <span class="token operator">=</span> <span class="token punctuation">{</span>
+            username<span class="token operator">:</span> data<span class="token punctuation">.</span>principal<span class="token punctuation">.</span>username<span class="token punctuation">,</span>
+            realname<span class="token operator">:</span> data<span class="token punctuation">.</span>principal<span class="token punctuation">.</span>realname<span class="token punctuation">,</span>
+            avatar<span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+            authorities<span class="token operator">:</span> data<span class="token punctuation">.</span>principal<span class="token punctuation">.</span>authorities <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            roles<span class="token operator">:</span> data<span class="token punctuation">.</span>principal<span class="token punctuation">.</span>roles <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+          <span class="token punctuation">}</span><span class="token punctuation">;</span>
+          <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">&quot;updateUserInfo&quot;</span><span class="token punctuation">,</span> newUserInfo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+          <span class="token keyword">let</span> permissions <span class="token operator">=</span> data<span class="token punctuation">.</span>authorities <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+          <span class="token keyword">let</span> isSuperAdmin <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>permissions<span class="token punctuation">.</span><span class="token function">findIndex</span><span class="token punctuation">(</span><span class="token parameter">t</span> <span class="token operator">=&gt;</span> t<span class="token punctuation">.</span>authority <span class="token operator">===</span> <span class="token string">&quot;ROLE_SUPER_ADMIN&quot;</span><span class="token punctuation">)</span> <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            isSuperAdmin <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+
+          permissionService<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            permissions<span class="token operator">:</span> permissions<span class="token punctuation">,</span>
+            isSuperAdmin<span class="token operator">:</span> isSuperAdmin
+          <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+          <span class="token function">resolve</span><span class="token punctuation">(</span>newUserInfo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">error</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">reject</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">logout</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> commit <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    userService
+      <span class="token punctuation">.</span><span class="token function">logout</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">error</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">reject</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">finally</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">&quot;updateToken&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">&quot;updateUserInfo&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+          username<span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+          realname<span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+          avatar<span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+          authorities<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          roles<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        permissionService<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+          permissions<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          isSuperAdmin<span class="token operator">:</span> <span class="token boolean">false</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">getUserInfo</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> commit <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    userService
+      <span class="token punctuation">.</span><span class="token function">getUserInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">data</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">&quot;updateUserInfo&quot;</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">error</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">reject</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>登录成功之后，会把利用Vuex把用户和权限信息保存在全局状态中，然后LocalStorage也保留一份，这样刷新页面的时候会从LocalStorage读取到Vuex中。</p> <h2 id="路由跳转管理"><a href="#路由跳转管理" class="header-anchor">#</a> 路由跳转管理</h2> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token keyword">import</span> VueRouter <span class="token keyword">from</span> <span class="token string">'vue-router'</span>
+
+<span class="token keyword">import</span> routes <span class="token keyword">from</span> <span class="token string">'./routes'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> authService <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;../service&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> store <span class="token keyword">from</span> <span class="token string">&quot;../store&quot;</span><span class="token punctuation">;</span>
+
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>VueRouter<span class="token punctuation">)</span>
+
+<span class="token comment">/*
+ * If not building with SSR mode, you can
+ * directly export the Router instantiation;
+ *
+ * The function below can be async too; either use
+ * async/await or return a Promise which resolves
+ * with the Router instance.
+ */</span>
+<span class="token keyword">const</span> Router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VueRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token function-variable function">scrollBehavior</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> x<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> y<span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  routes<span class="token punctuation">,</span>
+
+  <span class="token comment">// Leave these as they are and change in quasar.conf.js instead!</span>
+  <span class="token comment">// quasar.conf.js -&gt; build -&gt; vueRouterMode</span>
+  <span class="token comment">// quasar.conf.js -&gt; build -&gt; publicPath</span>
+  mode<span class="token operator">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">VUE_ROUTER_MODE</span><span class="token punctuation">,</span>
+  base<span class="token operator">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">VUE_ROUTER_BASE</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> whiteList <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&quot;/login&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;/403&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">hasPermission</span><span class="token punctuation">(</span><span class="token parameter">router</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>whiteList<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>router<span class="token punctuation">.</span>path<span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+Router<span class="token punctuation">.</span><span class="token function">beforeEach</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">to<span class="token punctuation">,</span> from<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> token <span class="token operator">=</span> authService<span class="token punctuation">.</span><span class="token function">getToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>token<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> userInfo <span class="token operator">=</span> store<span class="token punctuation">.</span>state<span class="token punctuation">.</span>user<span class="token punctuation">.</span>userInfo<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>userInfo<span class="token punctuation">.</span>username<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        <span class="token keyword">await</span> store<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token string">&quot;user/getUserInfo&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>whiteList<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>to<span class="token punctuation">.</span>path<span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+          <span class="token function">next</span><span class="token punctuation">(</span><span class="token string">&quot;/login&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">hasPermission</span><span class="token punctuation">(</span>to<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">{</span> path<span class="token operator">:</span> <span class="token string">&quot;/403&quot;</span><span class="token punctuation">,</span> replace<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>whiteList<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>to<span class="token punctuation">.</span>path<span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token function">next</span><span class="token punctuation">(</span><span class="token string">&quot;/login&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> Router<span class="token punctuation">;</span>
+</code></pre></div><p>通过复写Router.beforeEach方法，在页面跳转之前进行预处理，实现前面登录流程图里面的功能。</p> <h2 id="登录页面"><a href="#登录页面" class="header-anchor">#</a> 登录页面</h2> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token function">submit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>username<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>$q<span class="token punctuation">.</span><span class="token function">notify</span><span class="token punctuation">(</span><span class="token string">&quot;用户名不能为空！&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>password<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>$q<span class="token punctuation">.</span><span class="token function">notify</span><span class="token punctuation">(</span><span class="token string">&quot;密码不能为空！&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">this</span><span class="token punctuation">.</span>$q<span class="token punctuation">.</span>loading<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    message<span class="token operator">:</span> <span class="token string">&quot;登录中&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">this</span><span class="token punctuation">.</span>$store
+    <span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token string">&quot;user/login&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      username<span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>username<span class="token punctuation">,</span>
+      password<span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>password<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">&quot;/&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>$q<span class="token punctuation">.</span>loading<span class="token punctuation">.</span><span class="token function">hide</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">e</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>$q<span class="token punctuation">.</span>loading<span class="token punctuation">.</span><span class="token function">hide</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>submit方法中执行<code>this.$store.dispatch(&quot;user/login&quot;)</code>进行登录，表示调用user store action里面的login方法，如果成功，执行<code>this.$router.push(&quot;/&quot;)</code>。</p> <h2 id="配置devserver代理"><a href="#配置devserver代理" class="header-anchor">#</a> 配置devServer代理</h2> <div class="language-javascript extra-class"><pre class="language-javascript"><code>devServer<span class="token operator">:</span> <span class="token punctuation">{</span>
+  https<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  port<span class="token operator">:</span> <span class="token number">8080</span><span class="token punctuation">,</span>
+  open<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// opens browser window automatically</span>
+  proxy<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string">&quot;/api/*&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      target<span class="token operator">:</span> <span class="token string">&quot;https://demo.crudapi.cn&quot;</span><span class="token punctuation">,</span>
+      changeOrigin<span class="token operator">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>配置proxy之后，所有的api开头的请求就会转发到后台服务器，这样就可以解决了跨域访问的问题。</p> <h2 id="验证"><a href="#验证" class="header-anchor">#</a> 验证</h2> <p><img src="/img/crudapi-admin-web/login/loginerror.png" alt="登录失败">
+首先，故意输入一个错误的用户名，提示登录失败。</p> <p><img src="/img/crudapi-admin-web/login/loginsuccess.png" alt="登录成功">
+输入正确的用户名和密码，登录成功，自动跳转到后台管理页面。</p> <p><img src="/img/crudapi-admin-web/login/localstorage.png" alt="localstorage">
+F12开启chrome浏览器debug模式，查看localstorage，发现userInfo，permission，token内容和预期一致，其中权限permission相关内容在后续rbac章节中详细介绍。</p> <h2 id="小结"><a href="#小结" class="header-anchor">#</a> 小结</h2> <p>本文主要介绍了用户登录功能，用到了axios网络请求，Vuex状态管理，Router路由，localStorage本地存储等Vue基本知识，然后还用到了Quasar的三个插件，LocalStorage, Notify和Loading。虽然登录功能比较简单，但是它完整地实现了前端到后端之间的交互过程。</p> <h2 id="demo演示"><a href="#demo演示" class="header-anchor">#</a> demo演示</h2> <p>官网地址：<a href="https://crudapi.cn" target="_blank" rel="noopener noreferrer">https://crudapi.cn<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a><br>
+测试地址：<a href="https://demo.crudapi.cn/crudapi/login" target="_blank" rel="noopener noreferrer">https://demo.crudapi.cn/crudapi/login<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="附源码地址"><a href="#附源码地址" class="header-anchor">#</a> 附源码地址</h2> <h3 id="github地址"><a href="#github地址" class="header-anchor">#</a> GitHub地址</h3> <p><a href="https://github.com/crudapi/crudapi-admin-web" target="_blank" rel="noopener noreferrer">https://github.com/crudapi/crudapi-admin-web<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h3 id="gitee地址"><a href="#gitee地址" class="header-anchor">#</a> Gitee地址</h3> <p><a href="https://gitee.com/crudapi/crudapi-admin-web" target="_blank" rel="noopener noreferrer">https://gitee.com/crudapi/crudapi-admin-web<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>由于网络原因，GitHub可能速度慢，改成访问Gitee即可，代码同步更新。</p> <h2 id="目录"><a href="#目录" class="header-anchor">#</a> 目录</h2> <h4 id="基于vue和quasar的前端spa项目实战之环境搭建-一"><a href="#基于vue和quasar的前端spa项目实战之环境搭建-一" class="header-anchor">#</a> <a href="/crudapi-help/crudapi-admin-web/helloworld.html">基于Vue和Quasar的前端SPA项目实战之环境搭建（一）</a></h4> <h4 id="基于vue和quasar的前端spa项目实战之用户登录-二-2"><a href="#基于vue和quasar的前端spa项目实战之用户登录-二-2" class="header-anchor">#</a> <a href="/crudapi-help/crudapi-admin-web/login.html" aria-current="page" class="router-link-exact-active router-link-active">基于Vue和Quasar的前端SPA项目实战之用户登录（二）</a></h4></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/crudapi-help/crudapi-admin-web/helloworld.html" class="prev">
+        环境搭建
+      </a></span> <span class="next"><a href="/crudapi-help/crudapi-admin-web/layout.html">
+        菜单布局
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/crudapi-help/assets/js/app.fd54faef.js" defer></script><script src="/crudapi-help/assets/js/2.3ea03963.js" defer></script><script src="/crudapi-help/assets/js/19.84b5dda4.js" defer></script>
+  </body>
+</html>
