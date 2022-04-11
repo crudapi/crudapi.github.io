@@ -46,7 +46,7 @@ crudapi是crud+api组合，表示增删改查接口，是一款零代码可配�
 13. [ 基于Vue和Quasar的前端SPA项目实战之数据导出（十三）](https://help.crudapi.cn/crudapi-admin-web/export.html)
 14. [ 基于Vue和Quasar的前端SPA项目实战之模块管理（十四）](https://help.crudapi.cn/crudapi-admin-web/module.html)
 15. [ 基于Vue和Quasar的前端SPA项目实战之元数据导出导入（十五）](https://help.crudapi.cn/crudapi-admin-web/metadataexportimport.html)
-16. [ 基于Vue和Quasar的前端SPA项目实战之拖拽表单定制（十六）] (https://help.crudapi.cn/crudapi-admin-web/formbuilder.html
+16. [ 基于Vue和Quasar的前端SPA项目实战之拖拽表单定制（十六）] (https://help.crudapi.cn/crudapi-admin-web/formbuilder.html)
 
 ### 源码下载
 名称 | 类型 | 授权 | GitHub仓库 | Gitee仓库
