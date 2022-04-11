@@ -26,6 +26,9 @@ crudapi是crud+api组合，表示增删改查接口，是一款零代码可配�
 #### [crudapi系列六 RBAC权限模型](https://help.crudapi.cn/rbac.html) 
 #### [crudapi系列七 表单设计](https://help.crudapi.cn/table.html) 
 #### [crudapi系列八 应用场景](https://help.crudapi.cn/scenario.html) 
+#### [crudapi系列九 多数据库支持](https://help.crudapi.cn/database.html)
+#### [crudapi系列十 甲骨文oracle数据库](https://help.crudapi.cn/oracle.html)
+#### [crudapi系列十一 微软mssql数据库](https://help.crudapi.cn/mssql.html)
 
 ### 前端源码分析
 1. [ 基于Vue和Quasar的前端SPA项目实战之环境搭建（一）](https://help.crudapi.cn/crudapi-admin-web/helloworld.html)
@@ -43,13 +46,11 @@ crudapi是crud+api组合，表示增删改查接口，是一款零代码可配�
 13. [ 基于Vue和Quasar的前端SPA项目实战之数据导出（十三）](https://help.crudapi.cn/crudapi-admin-web/export.html)
 14. [ 基于Vue和Quasar的前端SPA项目实战之模块管理（十四）](https://help.crudapi.cn/crudapi-admin-web/module.html)
 15. [ 基于Vue和Quasar的前端SPA项目实战之元数据导出导入（十五）](https://help.crudapi.cn/crudapi-admin-web/metadataexportimport.html)
+16. [ 基于Vue和Quasar的前端SPA项目实战之拖拽表单定制（十六] https://help.crudapi.cn/crudapi-admin-web/formbuilder.html
 
-
-### crudapi-admin-web免费开源
-github repo
-[https://github.com/crudapi/crudapi-admin-web](https://github.com/crudapi/crudapi-admin-web)
-
-gitee repo
-[https://gitee.com/crudapi/crudapi-admin-web](https://gitee.com/crudapi/crudapi-admin-web)
-
+### 源码下载
+名称 | 类型 | 授权 | GitHub仓库 | Gitee仓库
+--- | --- | --- | --- | ---
+crudapi-admin-web | Vue Qusar源码 | 开源 | [crudapi-admin-web](https://github.com/crudapi/crudapi-admin-web) | [crudapi-admin-web](https://gitee.com/crudapi/crudapi-admin-web)
+crudapi-example| Java集成SDK | 永久免费 | [crudapi-example](https://github.com/crudapi/crudapi-example) | [crudapi-example](https://gitee.com/crudapi/crudapi-example)
 
